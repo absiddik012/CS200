@@ -1,0 +1,52 @@
+Q3. Assume that m and n are particular integers. Write Python program to verify the following questions(a, b, c).
+
+=> 
+def is_even(number):
+    """Check if a number is even."""
+    return number % 2 == 0
+
+def is_odd(number):
+    """Check if a number is odd."""
+    return number % 2 != 0
+
+def is_composite(number):
+    """Check if a number is composite."""
+    if number <= 1:
+        return False
+    for i in range(2, int(number ** 0.5) + 1):
+        if number % i == 0:
+            return True
+    return False
+
+def verify_statements(m, n):
+    # a. Is 6m + 8n even?
+    result_a = is_even(6*m + 8*n)
+
+    # b. Is 10mn + 7 odd?
+    result_b = is_odd(10*m*n + 7)
+
+    # c. If m > n > 0, is m^2 - n^2 composite?
+    result_c = "Condition not met (m > n > 0)." if not (m > n > 0) else is_composite(m**2 - n**2)
+
+    return result_a, result_b, result_c
+
+# Example usage with m and n as inputs
+m = 3
+n = 2
+results = verify_statements(m, n)
+print(f"Is 6m + 8n even? {results[0]}")
+print(f"Is 10mn + 7 odd? {results[1]}")
+print(f"If m > n > 0, is m^2 - n^2 composite? {results[2]}")
+
+
+
+a) Is 6m + 8n even?
+Ans: Yes, 6m + 8n is even.
+
+
+b) Is 10mn + 7 odd?
+Ans: Yes, 10mn + 7 odd is odd.
+
+
+c) If m > n > 0, is 𝑚^2 ― 𝑛^2 composite?
+Ans: No, if m > n > 0, then m^2 – n^2 is not considered as composite.
