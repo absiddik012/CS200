@@ -1,0 +1,53 @@
+Q4. Theorem: For every integer k, if k > 0 then 𝑘2 +2𝑘 + 1 is composite. Write Python program to verify it.
+
+"Proof: Suppose k is any integer such that k > 0. If 𝑘2 +2𝑘 + 1 is composite, then
+𝑘2 +2𝑘 + 1 = 𝑟𝑠 for some integers r and s such that
+ 				1 < 𝑟 < 𝑘2 + 2𝑘 + 1
+and
+ 				1 < 𝑠 < 𝑘2 + 2𝑘 + 1
+Since
+ 				𝑘2 + 2𝑘 + 1 = 𝑟𝑠
+
+and both r and s are strictly between 1 and 𝑘2 +2𝑘 + 1, then 𝑘2 +2𝑘 + 1 is not prime. Hence 𝑘2 +2𝑘 + 1 is composite as was to be shown."
+
+
+
+
+Ans:
+def is_composite(number):
+    """Check if a number is composite."""
+    if number <= 1:
+        return False
+    for i in range(2, int(number ** 0.5) + 1):
+        if number % i == 0:
+            return True
+    return False
+
+def verify_theorem(start, end):
+    """Verify if k^2 + 2k + 1 is composite for all integers k from start to end."""
+    for k in range(start, end + 1):
+        expression = k**2 + 2*k + 1
+        if is_composite(expression):
+            print(f"For k = {k}, k^2 + 2k + 1 = {expression} is composite.")
+        else:
+            print(f"For k = {k}, k^2 + 2k + 1 = {expression} is NOT composite.")
+
+# Example usage: Checking for k from 1 to 10
+verify_theorem(1, 10)
+ 
+
+
+This program checks if k^2+2^k+1 is composite for k values from a specified start to an end. It uses the is_composite function to check whether a number is composite and then iterates through a range of k values, and prints the results for each.
+From the output we can see that,
+For k = 1, k^2 + 2k + 1 = 4 is composite.
+For k = 2, k^2 + 2k + 1 = 9 is composite.
+For k = 3, k^2 + 2k + 1 = 16 is composite.
+For k = 4, k^2 + 2k + 1 = 25 is composite.
+For k = 5, k^2 + 2k + 1 = 36 is composite.
+For k = 6, k^2 + 2k + 1 = 49 is composite.
+For k = 7, k^2 + 2k + 1 = 64 is composite.
+For k = 8, k^2 + 2k + 1 = 81 is composite.
+For k = 9, k^2 + 2k + 1 = 100 is composite.
+For k = 10, k^2 + 2k + 1 = 121 is composite.
+
+Therefore, the theorem as stated seems to suggest that k^2+2^k+1 is always composite for every positive integer k.
